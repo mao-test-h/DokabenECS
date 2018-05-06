@@ -84,7 +84,7 @@ namespace MainContents.ECS
             mesh.SetUVs(0, this._dokabenSprite.uv.ToList());
             mesh.SetTriangles(Array.ConvertAll(this._dokabenSprite.triangles, _ => (int)_), 0);
 
-            // 渡すマテリアルはGPU Instancingに対応させる必要がる
+            // 渡すマテリアルはGPU Instancingに対応させる必要がある
             var meshInstanceRenderer = new MeshInstanceRenderer(); ;
             meshInstanceRenderer.mesh = mesh;
             meshInstanceRenderer.material = this._dokabenMaterial;
