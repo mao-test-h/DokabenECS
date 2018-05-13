@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -245,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -100}
+  m_LocalPosition: {x: 0, y: 1, z: -200}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -293,5 +293,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dokabenSprite: {fileID: 21300000, guid: 6f90298b5ebfd234ea51be8768ae4500, type: 3}
   _dokabenMaterial: {fileID: 2100000, guid: 86e257c7f00d73d47b248c90ee41b99a, type: 2}
-  _BoundSize: {x: 128, y: 128, z: 128}
-  _MaxObjectNum: 10000
+  _BoundSize: {x: 256, y: 256, z: 256}
+  _MaxObjectNum: 100000
