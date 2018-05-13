@@ -30,6 +30,17 @@ namespace MainContents.ECS
         /// </summary>
         [SerializeField] Material _dokabenMaterial;
 
+        /// <summary>
+        /// 表示領域のサイズ
+        /// </summary>
+        [SerializeField] Vector3 _BoundSize = new Vector3(32f, 32f, 32f);
+
+        /// <summary>
+        /// 最大オブジェクト数
+        /// </summary>
+        [SerializeField] int _MaxObjectNum = 10000;
+        
+
         #endregion // Private Members(Editable)
 
         // ------------------------------
@@ -53,14 +64,13 @@ namespace MainContents.ECS
                 typeof(DokabenComponentData),
                 typeof(TransformMatrix));
 
-
-            for (int i = 0; i < 1000; ++i)
+            var Look = this.CreateDokabenMeshInstanceRenderer();
+            var halfX = this._BoundSize.x / 2;
+            var halfY = this._BoundSize.y / 2;
+            var halfZ = this._BoundSize.z / 2;
+            var identity = new TransformMatrix { Value = float4x4.identity };
+            for (int i = 0; i < this._MaxObjectNum; ++i)
             {
-                // バッファに初期値を代入
-                var halfX = 32f / 2;
-                var halfY = 32f / 2;
-                var halfZ = 32f / 2;
-
                 var entity = entityManager.CreateEntity(archeType);
                 entityManager.SetComponentData(entity,
                     new DokabenComponentData
@@ -72,11 +82,11 @@ namespace MainContents.ECS
                             UnityRandom.Range(-halfZ, halfZ))
                     });
 
-                entityManager.SetComponentData(entity, new TransformMatrix { Value = float4x4.identity });
+                entityManager.SetComponentData(entity, identity);
 
                 // 描画用の情報としてMeshInstanceRendererを紐付ける
                 // ※MeshInstanceRendererとTransformMatrixを紐付けることでMeshInstanceRendererSystemから呼ばれるようになる
-                entityManager.AddSharedComponentData(entity, this.CreateDokabenMeshInstanceRenderer());
+                entityManager.AddSharedComponentData(entity, Look);
             }
         }
 
