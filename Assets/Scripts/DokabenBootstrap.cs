@@ -39,14 +39,8 @@ namespace MainContents.ECS
         /// 最大オブジェクト数
         /// </summary>
         [SerializeField] int _MaxObjectNum = 10000;
-        
 
         #endregion // Private Members(Editable)
-
-        // ------------------------------
-        #region // Private Members
-
-        #endregion // Private Members
 
 
         // ----------------------------------------------------

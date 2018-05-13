@@ -9,41 +9,6 @@ using Unity.Collections;
 
 namespace MainContents.ECS
 {
-    // 共通定数
-    public class Constants
-    {
-        // コマ数
-        public const int Framerate = 9;
-        // 1コマに於ける回転角度
-        public const float Angle = (90f / Framerate); // 90度をコマ数で分割
-        // コマ中の待機時間
-        public const float Interval = 0.2f;
-
-        // コマ落ちアニメーションテーブル
-        public static readonly float[] AnimationTable =
-            new float[] {
-                1f,
-                0.9333333333333333f,
-                0.8666666666666667f,
-                0.8f,
-                0.7333333333333333f,
-                0.6666666666666666f,
-                0.6f,
-                0.5333333333333333f,
-                0.4666666666666667f,
-                0.4f,
-                0.3333333333333333f,
-                0.26666666666666666f,
-                0.2f,
-                0.13333333333333333f,
-                0.06666666666666667f,
-                0f };
-
-        // アニメーションの再生速度
-        public const float AnimationSpeed = 1f;
-
-    }
-
     /// <summary>
     /// ドカベンロゴの回転(ComponentSystem)
     /// </summary>
