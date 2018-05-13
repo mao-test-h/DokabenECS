@@ -76,7 +76,7 @@ namespace MainContents.ECS
                 float normal = (sinTime + 1f) / 2f;
 
                 // X軸に0~90度回転
-                int index = (int)math.round(normal * (animLength - 1));
+                var index = (int)math.round(normal * (animLength - 1));
                 float rot = Constants.AnimationTable[index] * math.radians(90f);
 
                 // 任意の原点周りにX軸回転を行う(原点を-0.5ずらして下端に設定)
@@ -91,6 +91,11 @@ namespace MainContents.ECS
                 m.m2.z = cos;
                 m.m3.y = halfY - halfY * cos + z * sin;
                 m.m3.z = z - halfY * sin - z * cos;
+
+                // 移動
+                m.m3.x += data.Position.x;
+                m.m3.y += data.Position.y;
+                m.m3.z += data.Position.z;
 
 
                 // 計算結果の保持

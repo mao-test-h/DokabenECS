@@ -8,6 +8,8 @@ using Unity.Mathematics;
 using Unity.Rendering;
 using Unity.Transforms;
 
+using UnityRandom = UnityEngine.Random;
+
 namespace MainContents.ECS
 {
     /// <summary>
@@ -51,18 +53,31 @@ namespace MainContents.ECS
                 typeof(DokabenComponentData),
                 typeof(TransformMatrix));
 
-            // テストで一体生成
-            var entity = entityManager.CreateEntity(archeType);
-            entityManager.SetComponentData(entity,
-                new DokabenComponentData
-                {
-                    AnimationHeader = 0f,
-                });
-            entityManager.SetComponentData(entity, new TransformMatrix { Value = float4x4.identity });
 
-            // 描画用の情報としてMeshInstanceRendererを紐付ける
-            // ※MeshInstanceRendererとTransformMatrixを紐付けることでMeshInstanceRendererSystemから呼ばれるようになる
-            entityManager.AddSharedComponentData(entity, this.CreateDokabenMeshInstanceRenderer());
+            for (int i = 0; i < 1000; ++i)
+            {
+                // バッファに初期値を代入
+                var halfX = 32f / 2;
+                var halfY = 32f / 2;
+                var halfZ = 32f / 2;
+
+                var entity = entityManager.CreateEntity(archeType);
+                entityManager.SetComponentData(entity,
+                    new DokabenComponentData
+                    {
+                        AnimationHeader = 0f,
+                        Position = new float3(
+                            UnityRandom.Range(-halfX, halfX),
+                            UnityRandom.Range(-halfY, halfY),
+                            UnityRandom.Range(-halfZ, halfZ))
+                    });
+
+                entityManager.SetComponentData(entity, new TransformMatrix { Value = float4x4.identity });
+
+                // 描画用の情報としてMeshInstanceRendererを紐付ける
+                // ※MeshInstanceRendererとTransformMatrixを紐付けることでMeshInstanceRendererSystemから呼ばれるようになる
+                entityManager.AddSharedComponentData(entity, this.CreateDokabenMeshInstanceRenderer());
+            }
         }
 
         #endregion // Unity Events

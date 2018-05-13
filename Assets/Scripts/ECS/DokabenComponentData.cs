@@ -13,5 +13,9 @@ namespace MainContents.ECS
         /// アニメーションテーブル内に於ける再生位置
         /// </summary>
         public float AnimationHeader;
+        /// <summary>
+        /// 位置
+        /// </summary>
+        public float3 Position;
     }
 }
