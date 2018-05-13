@@ -1,5 +1,6 @@
 ﻿using Unity.Entities;
 using Unity.Mathematics;
+using Unity.Transforms;
 
 namespace MainContents.ECS
 {
@@ -9,23 +10,8 @@ namespace MainContents.ECS
     public struct DokabenComponentData : IComponentData
     {
         /// <summary>
-        /// 経過時間計測用
+        /// アニメーションテーブル内に於ける再生位置
         /// </summary>
-        public float DeltaTimeCounter;
-
-        /// <summary>
-        /// コマ数のカウンタ
-        /// </summary>
-        public int FrameCounter;
-
-        /// <summary>
-        /// 1コマに於ける回転角度
-        /// </summary>
-        public float CurrentAngle;
-
-        /// <summary>
-        /// 算出した回転情報を保持
-        /// </summary>
-        public float4x4 Matrix;
+        public float AnimationHeader;
     }
 }

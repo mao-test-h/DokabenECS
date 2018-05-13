@@ -48,17 +48,15 @@ namespace MainContents.ECS
 
             // ドカベンロゴ用のアーキタイプ
             var archeType = entityManager.CreateArchetype(
-                typeof(DokabenComponentData), typeof(TransformMatrix));
+                typeof(DokabenComponentData),
+                typeof(TransformMatrix));
 
             // テストで一体生成
             var entity = entityManager.CreateEntity(archeType);
             entityManager.SetComponentData(entity,
                 new DokabenComponentData
                 {
-                    DeltaTimeCounter = 0f,
-                    FrameCounter = 0,
-                    CurrentAngle = 0f,
-                    Matrix = float4x4.identity,
+                    AnimationHeader = 0f,
                 });
             entityManager.SetComponentData(entity, new TransformMatrix { Value = float4x4.identity });
 
