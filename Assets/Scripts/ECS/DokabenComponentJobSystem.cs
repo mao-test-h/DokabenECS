@@ -25,7 +25,7 @@ namespace MainContents.ECS
         /// <summary>
         /// ドカベンロゴ回転計算用Job
         /// </summary>
-        //[ComputeJobOptimization]
+        //[ComputeJobOptimization]  // TODO BurstCompolerについて、static、配列などが使えないので作り変える必要ありそう感
         struct DokabenJob : IJobProcessComponentData<DokabenComponentData, TransformMatrix>
         {
             public float Time;
