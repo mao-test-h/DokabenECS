@@ -1,4 +1,4 @@
-﻿Shader "Custom/DokabenShader"
+﻿Shader "Custom/Unlit-GPU-Instancing"
 {
     Properties
     {
