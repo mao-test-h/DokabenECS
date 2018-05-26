@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befe26daa4cbdf840b8ba480f5872bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dokabenSprite: {fileID: 21300000, guid: 6f90298b5ebfd234ea51be8768ae4500, type: 3}
-  _dokabenMaterial: {fileID: 2100000, guid: 86e257c7f00d73d47b248c90ee41b99a, type: 2}
+  _DokabenSprite: {fileID: 21300000, guid: 6f90298b5ebfd234ea51be8768ae4500, type: 3}
+  _DokabenMaterial: {fileID: 2100000, guid: 86e257c7f00d73d47b248c90ee41b99a, type: 2}
   _BoundSize: {x: 256, y: 256, z: 256}
   _MaxObjectNum: 100000
