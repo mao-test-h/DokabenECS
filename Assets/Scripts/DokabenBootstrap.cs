@@ -23,22 +23,22 @@ namespace MainContents.ECS
         /// <summary>
         /// ドカベンロゴのスプライト
         /// </summary>
-        [SerializeField] Sprite _dokabenSprite;
+        [SerializeField] Sprite _DokabenSprite;
 
         /// <summary>
         /// ドカベンロゴの表示マテリアル
         /// </summary>
-        [SerializeField] Material _dokabenMaterial;
+        [SerializeField] Material _DokabenMaterial;
 
         /// <summary>
         /// 表示領域のサイズ
         /// </summary>
-        [SerializeField] Vector3 _BoundSize = new Vector3(32f, 32f, 32f);
+        [SerializeField] Vector3 _BoundSize = new Vector3(256f, 256f, 256f);
 
         /// <summary>
         /// 最大オブジェクト数
         /// </summary>
-        [SerializeField] int _MaxObjectNum = 10000;
+        [SerializeField] int _MaxObjectNum = 100000;
 
         #endregion // Private Members(Editable)
 
@@ -97,14 +97,14 @@ namespace MainContents.ECS
         {
             // Sprite to Mesh
             var mesh = new Mesh();
-            mesh.SetVertices(Array.ConvertAll(this._dokabenSprite.vertices, _ => (Vector3)_).ToList());
-            mesh.SetUVs(0, this._dokabenSprite.uv.ToList());
-            mesh.SetTriangles(Array.ConvertAll(this._dokabenSprite.triangles, _ => (int)_), 0);
+            mesh.SetVertices(Array.ConvertAll(this._DokabenSprite.vertices, _ => (Vector3)_).ToList());
+            mesh.SetUVs(0, this._DokabenSprite.uv.ToList());
+            mesh.SetTriangles(Array.ConvertAll(this._DokabenSprite.triangles, _ => (int)_), 0);
 
             // 渡すマテリアルはGPU Instancingに対応させる必要がある
-            var meshInstanceRenderer = new MeshInstanceRenderer(); ;
+            var meshInstanceRenderer = new MeshInstanceRenderer();
             meshInstanceRenderer.mesh = mesh;
-            meshInstanceRenderer.material = this._dokabenMaterial;
+            meshInstanceRenderer.material = this._DokabenMaterial;
             return meshInstanceRenderer;
         }
 

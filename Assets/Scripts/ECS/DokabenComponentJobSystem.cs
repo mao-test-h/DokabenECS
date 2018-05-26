@@ -8,8 +8,8 @@ using UnityEngine;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using Unity.Collections;
 using Unity.Jobs;
+using Unity.Rendering;
 
 #if ENABLE_JOBSYSTEM
 namespace MainContents.ECS
@@ -20,6 +20,7 @@ namespace MainContents.ECS
     /// ドカベンロゴの回転(ComponentSystem) ※JobSystem併用版
     /// </summary>
     /// <remarks>JobComponentSystemを継承した実装</remarks>
+    [UpdateAfter(typeof(MeshInstanceRendererSystem))]   // MeshInstanceRendererSystemでJob待ち?が発生するっぽいので後に実行。しかし毎フレーム解決されるわけではない...
     public class DokabenComponentJobSystem : JobComponentSystem
     {
         /// <summary>
