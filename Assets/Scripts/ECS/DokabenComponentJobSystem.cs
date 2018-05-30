@@ -58,17 +58,12 @@ namespace MainContents.ECS
                 float halfY = y - 0.5f;
                 float sin = math.sin(rot);
                 float cos = math.cos(rot);
-                m.m1.y = cos;
-                m.m1.z = sin;
-                m.m2.y = -sin;
-                m.m2.z = cos;
-                m.m3.y = halfY - halfY * cos + z * sin;
-                m.m3.z = z - halfY * sin - z * cos;
+                m.m1.yz = new float2(cos, sin);
+                m.m2.yz = new float2(-sin, cos);
+                m.m3.yz = new float2(halfY - halfY * cos + z * sin, z - halfY * sin - z * cos);
 
                 // 移動
-                m.m3.x += data.Position.x;
-                m.m3.y += data.Position.y;
-                m.m3.z += data.Position.z;
+                m.m3.xyz += data.Position.xyz;
 
                 // 計算結果の反映
                 transform.Value = m;
